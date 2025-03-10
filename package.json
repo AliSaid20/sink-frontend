@@ -4,7 +4,6 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "preinstall": "npx npm-force-resolutions",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
@@ -21,6 +20,7 @@
     "@fontsource/titillium-web": "^5.1.1",
     "@mui/icons-material": "^6.4.5",
     "@mui/material": "^6.4.5",
+    "@mui/system": "^6.4.7",
     "@mui/x-date-pickers": "^7.27.1",
     "axios": "^1.7.9",
     "cosmiconfig": "^9.0.0",
@@ -43,7 +43,6 @@
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.18",
     "globals": "^15.14.0",
-    "npm-force-resolutions": "^0.0.10",
     "vite": "^6.1.0"
   }
 }
