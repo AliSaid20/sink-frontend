@@ -11,7 +11,8 @@
     "preview": "vite preview"
   },
   "resolutions": {
-    "yaml": "2.7.0"
+    "yaml": "2.7.0",
+    "cosmiconfig/yaml": "2.7.0"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -22,6 +23,7 @@
     "@mui/material": "^6.4.5",
     "@mui/x-date-pickers": "^7.27.1",
     "axios": "^1.7.9",
+    "cosmiconfig": "^9.0.0",
     "date-fns": "^4.1.0",
     "process": "^0.11.10",
     "qrcode.react": "^4.2.0",
