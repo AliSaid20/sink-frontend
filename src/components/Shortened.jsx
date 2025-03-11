@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect } from "react";
-import { TextField, Button, Typography, Box, IconButton, Radio, RadioGroup, FormControlLabel, Grid, ToggleButton, ToggleButtonGroup, Link, useMediaQuery, useTheme, Snackbar, Alert  } from "@mui/material";
+import { TextField, Button, Typography, Box, IconButton, Radio, RadioGroup, FormControlLabel, Grid, ToggleButton, ToggleButtonGroup, Link, useMediaQuery, useTheme, Snackbar, Alert, CircularProgress  } from "@mui/material";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import { QRCodeCanvas } from "qrcode.react";
 import axios from "axios";
@@ -27,7 +27,8 @@ const Shortened = () => {
 
     const [openInfoDialog, setOpenInfoDialog] = useState(false);
 
-
+    const [loading, setLoading] = useState(false);
+    
     const theme = useTheme();
     const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
     const isMediumScreen = useMediaQuery(theme.breakpoints.between("sm", "md"));
@@ -68,6 +69,9 @@ const Shortened = () => {
     
 
     const handleShorten = async () => {
+
+        setLoading(true);
+
         if (!longUrl.trim() || !isValidUrl(longUrl)) {
             setError(true);
             return;
@@ -130,6 +134,7 @@ const Shortened = () => {
                 alert("Network error. Please check your connection.");
             }
         }
+        setLoading(false);
     };
 
     const handleCopy = async (value) => {
@@ -368,7 +373,7 @@ const Shortened = () => {
                     
                       />}
 
-                <Button onClick={handleShorten} variant="contained" sx={{ bgcolor: "#03A9F4", color: "#FFF", borderRadius: "30px", px: 4, py: 1.5, "&:hover": { bgcolor: "#0288D1" } }}>Shorten</Button>
+                <Button onClick={handleShorten} variant="contained" sx={{ bgcolor: "#03A9F4", color: "#FFF", borderRadius: "30px", px: 4, py: 1.5, "&:hover": { bgcolor: "#0288D1" } }} disabled={loading}>{loading ? <CircularProgress size={24} /> : "Shorten"}</Button>
                 </>
             )}
                 {viewMode && (
