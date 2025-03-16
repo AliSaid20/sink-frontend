@@ -70,7 +70,7 @@ const Shortened = () => {
 
     const handleShorten = async () => {
 
-        setLoading(true);
+        // setLoading(true);
 
         if (!longUrl.trim() || !isValidUrl(longUrl)) {
             setError(true);
@@ -104,12 +104,15 @@ const Shortened = () => {
                 setOpenSnackbar(true);
                 return;
             }
+
+            setLoading(true);
+
     
             setShortUrl(response.data.shortened_url);
             setEditLink(response.data.edit_link);
             setQrCode(response.data.qr_code);
             setViewMode("shortened");
-    
+            
             setSnackbarMessage("URL shortened successfully!");
             setSnackbarSeverity("success");
             setOpenSnackbar(true);
